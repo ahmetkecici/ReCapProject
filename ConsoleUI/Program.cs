@@ -10,23 +10,32 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-             CarTest();
+
+            RentalManager rentalManager = new RentalManager(new EfRentalDal(), new EfCarDal());
+            Rental rental = new Rental();
+
+            rental.CarId = 4;
+            rental.CustomerId = 1;
+            rental.RentDate = DateTime.Now;
+            var result = rentalManager.Add(rental);
+            Console.WriteLine(result.Message);
+            //CarTest();
             //ColorTest();
-          //  BrandTest();
+            // BrandTest();
         }
 
         private static void BrandTest()
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            // brandManager.Add(new Brand { Name="Mercedes"});
+             brandManager.Add(new Brand { Name="Mercedes75552"});
             // brandManager.Update(new Brand {Id=1, Name = "bmv" });
-            brandManager.Delete(new Brand { Id = 2 });
+          //  brandManager.Delete(new Brand { Id = 2 });
             //Brand brand = brandManager.GetById(1);
             //Console.WriteLine(brand.Id);
-            foreach (var item in brandManager.GetAll())
-            {
-                Console.WriteLine(item.Name);
-            }
+           // foreach (var item in brandManager.GetAll().Data)
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
         }
 
         private static void ColorTest()
@@ -35,9 +44,9 @@ namespace ConsoleUI
             // colorManager.Add(new Color { Name="blue"});
             // colorManager.Update(new Color {Id=1, Name = "Green" });
             // colorManager.Delete(new Color { Id = 2, Name = "blue" });
-            Color color = colorManager.GetById(1);
-            Console.WriteLine(color.Id);
-            foreach (var item in colorManager.GetAll())
+            var result = colorManager.GetById(1);
+            Console.WriteLine(result.Data.Id);
+            foreach (var item in colorManager.GetAll().Data)
             {
                 Console.WriteLine(item.Name);
             }
@@ -51,7 +60,7 @@ namespace ConsoleUI
 
 
 
-            foreach (var item in carManager.GetCarDetails())
+            foreach (var item in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine(item.CarBrandName+""+ item.ColorName+item.DailyPrice+item.CarName);
             }
