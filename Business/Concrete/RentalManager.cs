@@ -49,22 +49,24 @@ namespace Business.Concrete
 
         public IResult Delete(Rental rental)
         {
-            throw new NotImplementedException();
+            _rentDal.Delete(rental);
+            return new SuccesResult();
         }
 
         public IDataResult<List<Rental>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Rental>>(_rentDal.GetAll());
         }
 
         public IDataResult<Rental> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Rental>(_rentDal.Get(p=>p.Id==id));
         }
 
         public IResult Update(Rental rental)
         {
-            throw new NotImplementedException();
+            _rentDal.Delete(rental);
+            return new SuccesResult();
         }
     }
 }

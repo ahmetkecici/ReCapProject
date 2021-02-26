@@ -23,12 +23,13 @@ namespace Business.Concrete
             if (car.Description.Length>2&&car.DailyPrice>0)
             {
                 _carDal.Add(car);
+                return new SuccesResult();
             }
             else
             {
-                throw new Exception("Hata Araba İsmi uzunluğu 2 den büyük veya fiyatı 0 dan büyük olmalı");
+                return new ErrorResult("Araba ismi 2 den büyük olmalı");
             }
-            return new SuccesResult(); 
+         
         }
 
         public IResult Delete(Car car)
