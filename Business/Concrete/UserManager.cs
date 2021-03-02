@@ -11,6 +11,12 @@ namespace Business.Concrete
    public  class UserManager : IUserService
     {
         IUserDal _userDal;
+
+        public UserManager(IUserDal userDal)
+        {
+            _userDal = userDal;
+        }
+
         public IResult Add(User user)
         {
             _userDal.Add(user);
