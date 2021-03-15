@@ -10,6 +10,9 @@ namespace Business.Validations.FluentValidation
     {
         public FvCarValidator()
         {
+            RuleFor(x=>x.ModelYear).NotEmpty().WithMessage("Evet");
+            RuleFor(x => x.ColorId).NotEmpty().GreaterThan(5);
+            RuleFor(x => x.BrandId).NotEmpty().WithMessage("Evet");
            
         }
     }
