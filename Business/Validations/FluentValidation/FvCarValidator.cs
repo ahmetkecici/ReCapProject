@@ -13,7 +13,9 @@ namespace Business.Validations.FluentValidation
             RuleFor(x=>x.ModelYear).NotEmpty().WithMessage("Evet");
             RuleFor(x => x.ColorId).NotEmpty().GreaterThan(5);
             RuleFor(x => x.BrandId).NotEmpty().WithMessage("Evet");
-           
+            RuleFor(x => x.BrandId).NotEmpty().WithMessage("selam");
+            RuleFor(x => x.BrandId).NotEmpty().WithMessage("selam25");
+            RuleFor(x => x.BrandId).NotEmpty().WithMessage("selam257");
         }
     }
 }
