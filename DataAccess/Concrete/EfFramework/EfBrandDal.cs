@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EfFramework
 {
-    public class EfBrandDal: EfRepositoryBase<Brand, NorthwindContext>, IBrandDal
+    public class EfBrandDal: EfRepositoryBase<Brand, RecapProjectContext>, IBrandDal
     {
     }
 }

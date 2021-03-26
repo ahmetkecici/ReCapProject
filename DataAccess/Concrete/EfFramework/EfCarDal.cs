@@ -10,11 +10,11 @@ using System.Linq;
 
 namespace DataAccess.Concrete.EfFramework
 {
-    public class EfCarDal : EfRepositoryBase<Car, NorthwindContext>, ICarDal
+    public class EfCarDal : EfRepositoryBase<Car, RecapProjectContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails()
         {
-            using (NorthwindContext context=new NorthwindContext())
+            using (RecapProjectContext context=new RecapProjectContext())
             {
                 var result = from cars in context.Cars
                              join brands in context.Brands

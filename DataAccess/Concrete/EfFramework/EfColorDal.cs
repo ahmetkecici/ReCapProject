@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EfFramework
 {
-   public class EfColorDal:EfRepositoryBase<Color,NorthwindContext>,IColorDal
+   public class EfColorDal:EfRepositoryBase<Color,RecapProjectContext>,IColorDal
     {
     }
 }
